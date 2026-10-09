@@ -16,8 +16,13 @@ cd TUMDownloader
 ```
 
 Danach das Installationsskript ausführen.
+Unter windows:
+```powershell
+python install.py
+```
+Unter Linux/macOS:
 ```bash
-install.py
+python3 install.py
 ```
 
 
