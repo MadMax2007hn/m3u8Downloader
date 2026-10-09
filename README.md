@@ -11,7 +11,7 @@ Benötigt werden:
 
 Repository klonen:
 ```bash
-git clone <DEINE-REPOSITORY-URL>
+git clone https://github.com/MadMax2007hn/m3u8Downloader
 cd TUMDownloader
 ```
 
