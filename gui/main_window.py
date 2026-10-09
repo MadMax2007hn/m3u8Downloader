@@ -30,7 +30,7 @@ class MainWindow(QMainWindow):
         self.queue_manager = queue_manager
         self.favorites_manager = favorites_manager
 
-        self.setWindowTitle("TUMDownload")
+        self.setWindowTitle("m3u8Downloader")
         self.resize(900, 600)
 
         self.build_ui()
@@ -91,13 +91,18 @@ class MainWindow(QMainWindow):
         )
 
         self.compression_combo.addItem(
-            "H.264",
-            CompressionMode.H264
+            "H.265HQ",
+            CompressionMode.H265HQ
         )
 
         self.compression_combo.addItem(
-            "H.265",
-            CompressionMode.H265
+            "H.265A",
+            CompressionMode.H265A
+        )
+
+        self.compression_combo.addItem(
+            "H.265K",
+            CompressionMode.H265K
         )
 
         self.compression_combo.addItem(

@@ -2,7 +2,6 @@ import subprocess
 from pathlib import Path
 
 from models import CompressionMode
-from utils import time_to_seconds
 
 
 def compress_video(
@@ -20,21 +19,31 @@ def compress_video(
         input_file.stem + "_compressed.mp4"
     )
 
-    if mode == CompressionMode.H264:
-        codec_options = [
-            "-c:v", "libopenh264",
-            "-b:v", "4M",
-            "-c:a", "aac",
-            "-b:a", "128k"
-        ]
-
-    elif mode == CompressionMode.H265:
+    if mode == CompressionMode.H265HQ:
         codec_options = [
             "-c:v", "libx265",
-            "-preset", "medium",
+            "-preset", "fast",
+            "-crf", "24",
+            "-c:a", "aac",
+            "-b:a", "96k"
+        ]
+
+    elif mode == CompressionMode.H265A:
+        codec_options = [
+            "-c:v", "libx265",
+            "-preset", "fast",
+            "-crf", "26",
+            "-c:a", "aac",
+            "-b:a", "96k"
+        ]
+	
+    elif mode == CompressionMode.H265K:
+        codec_options = [
+            "-c:v", "libx265",
+            "-preset", "faster",
             "-crf", "28",
             "-c:a", "aac",
-            "-b:a", "128k"
+            "-b:a", "96k"
         ]
 
     elif mode == CompressionMode.AV1:

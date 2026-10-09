@@ -14,8 +14,9 @@ class DownloadStatus(Enum):
 
 class CompressionMode(Enum):
     NONE = "Keine"
-    H264 = "H.264"
-    H265 = "H.265"
+    H265HQ = "H.265HQ"
+    H265A = "H.265A"
+    H265K = "H.265K"
     AV1 = "AV1"
 
 

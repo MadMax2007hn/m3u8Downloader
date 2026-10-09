@@ -84,8 +84,6 @@ class QueueManager:
             for item in data
         ]
 
-        # Falls das Programm während eines Downloads
-        # beendet wurde:
         for task in self.tasks:
             if task.status in (
                     DownloadStatus.DOWNLOADING,
@@ -146,7 +144,6 @@ class QueueManager:
 
                 if task.compression != CompressionMode.NONE:
 
-                    # Nur Status ändern -> kurz locken
                     with self.lock:
                         task.status = DownloadStatus.COMPRESSING
                         task.download_progress = 100.0
@@ -164,8 +161,6 @@ class QueueManager:
                         if progress_callback:
                             progress_callback(task)
 
-                    # WICHTIG:
-                    # compress_video AUSSERHALB des Locks!
                     success, _, error = compress_video(
                         input_file=task.output_file,
                         mode=task.compression,
@@ -173,7 +168,6 @@ class QueueManager:
                         progress_callback=update_compression_progress
                     )
 
-                    # Erst danach wieder kurz locken
                     with self.lock:
                         task.status = DownloadStatus.FINISHED
                         task.download_progress = 100.0

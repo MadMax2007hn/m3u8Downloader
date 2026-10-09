@@ -206,14 +206,14 @@ def show_start_command(python):
         return
 
     print()
-    print("TUMDownload kannst du starten mit:")
+    print("m3u8Downloader kannst du starten mit:")
     print()
     print(f'    "{python}" "{main_file}"')
 
 
 def main():
     print("=" * 48)
-    print("          TUMDownload - Installation")
+    print("          m3u8Downloader - Installation")
     print("=" * 48)
     print()
     print(f"Betriebssystem: {platform.system()} {platform.release()}")
